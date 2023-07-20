@@ -1,0 +1,7 @@
+  <ul>
+    {% for item in item_list %} <!--## tag ## to iterate over items in a list-->
+    <li>
+      <a href="{% url 'food:detail' item.id %}">{{ item.id }} - {{ item.name }} - ${{ item.price}}</a> <!--## variable ## to retrieve object data-->
+    </li>
+    {% endfor %} <!--to end a loop-->
+  </ul>
