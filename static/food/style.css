@@ -1,0 +1,7 @@
+body {
+  background-color: lightgoldenrodyellow;
+}
+
+.food-item {
+  object-fit: cover;
+}

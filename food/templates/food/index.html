@@ -1,7 +1,23 @@
-  <ul>
-    {% for item in item_list %} <!--## tag ## to iterate over items in a list-->
-    <li>
-      <a href="{% url 'food:detail' item.id %}">{{ item.id }} - {{ item.name }} - ${{ item.price}}</a> <!--## variable ## to retrieve object data-->
-    </li>
-    {% endfor %} <!--to end a loop-->
-  </ul>
+{% extends 'food/base.html' %}
+
+{% block content %}
+
+{% for item in item_list %} <!-- ## tag ## to iterate over items in a list -->
+<div class="card-container">
+  <div class="row">
+    <div class="col-md-3 offset-md-2">
+      <img src="{{ item.image }}" alt="" class="card food-item" height="150px" width="220">
+    </div>
+    <div class="col-md-4"> <!--## variable ## to retrieve object data-->
+      <h3>{{ item.name }}</h3>
+      <h5>{{ item.desc }}</h5>
+      <h6>${{ item.price }}</h6>
+    </div>
+    <div class="col-md-2">
+      <a href="{% url 'food:detail' item.id %}" class="btn btn-success">Details</a>
+    </div>
+  </div>
+</div>
+{% endfor %}
+
+{% endblock %}
