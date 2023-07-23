@@ -19,7 +19,13 @@
       <a href="{% url 'food:index' %}" class="nav-item nav-link">View Items</a>
     </div>
   </nav>
-
+  {% if messages %}
+  {% for message in messages %}
+  <div class="alert alert-{{ message.tags }} text-center">
+      <h3>{{ message }}</h3>
+  </div>
+    {% endfor %}
+  {% endif %}
 
 {% block content %}
 {% endblock  %}
