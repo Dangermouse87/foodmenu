@@ -1,20 +1,25 @@
 {% extends 'food/base.html' %}
 
 {% block content %}
+<div class="text-center">
+  <h1>Food List</h1>
+</div>
 
 {% for item in item_list %} <!-- ## tag ## to iterate over items in a list -->
-<div class="card-container">
-  <div class="row">
-    <div class="col-md-3 offset-md-2">
-      <img src="{{ item.image }}" alt="" class="card food-item" height="150px" width="220">
-    </div>
-    <div class="col-md-4"> <!--## variable ## to retrieve object data-->
-      <h3>{{ item.name }}</h3>
-      <h5>{{ item.desc }}</h5>
-      <h6>${{ item.price }}</h6>
-    </div>
-    <div class="col-md-2">
-      <a href="{% url 'food:detail' item.id %}" class="btn btn-success">Details</a>
+<div class="container">
+  <div class="card-container m-2">
+    <div class="row">
+      <div class="col-md-3 offset-md-2">
+        <img src="{{ item.image }}" alt="" class="card food-item" height="150px" width="220">
+      </div>
+      <div class="col-md-4"> <!--## variable ## to retrieve object data-->
+        <h3>{{ item.name }}</h3>
+        <h5>{{ item.desc }}</h5>
+        <h6>${{ item.price }}</h6>
+      </div>
+      <div class="col-md-2">
+        <a href="{% url 'food:detail' item.id %}" class="btn btn-success">Details</a>
+      </div>
     </div>
   </div>
 </div>

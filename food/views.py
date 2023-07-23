@@ -23,7 +23,7 @@ def detail(request, item_id): # get id to view specific item detail
     }
     return render(request, 'food/detail.html', context)
 
-def create_item(request):
+def new(request):
     form = ItemForm(request.POST or None)
     context = {'form': form}
 
