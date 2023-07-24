@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'food',
-    'users',
+    'users.apps.UsersConfig',
     'bootstrap5',
 ]
 
@@ -122,8 +122,11 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     Path.joinpath(BASE_DIR,'static'),
 ]
+MEDIA_ROOT = Path.joinpath(BASE_DIR,'pictures') # root dir where imgs are stored
+MEDIA_URL = '/pictures/'
 
 LOGIN_REDIRECT_URL = 'food:index' # automatically set redirect on login/logout
+LOGIN_URL = 'login' # no longer looks for default accounts/login url, but one determined by us
 LOGOUT_REDIRECT_URL = 'food:index'
 
 # Default primary key field type
